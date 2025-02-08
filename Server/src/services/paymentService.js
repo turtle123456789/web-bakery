@@ -13,7 +13,7 @@ const PAYMENT_CONFIG = {
     vnp_TmnCode: 'CWEOOKIU', // Mã website của bạn tại VNPay
     vnp_HashSecret: 'IVBAVUN30FY7F5U8PAYF09VENC7VRY5V', // Chuỗi bí mật để tạo mã hash
     vnp_Url: 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html', // Đường dẫn thanh toán của VNPay
-    vnp_ReturnUrl: 'https://web-bakery-wine.vercel.app' // URL trả về sau khi thanh toán
+    vnp_ReturnUrl: 'http://localhost:3000' // URL trả về sau khi thanh toán
   };
 //MOMO
 const createPaymentMoMo = async (amount, method) => {
