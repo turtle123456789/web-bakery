@@ -92,10 +92,7 @@ const createPaymentMoMo = async (amount, method) => {
 //VNPay
 const createPaymentVNPay = async (req) => {
     console.log('req.body', req.body)
-    var ipAddr = req.headers['x-forwarded-for'] ||
-  req.connection.remoteAddress ||
-  req.socket.remoteAddress ||
-  req.connection.socket.remoteAddress;
+    let ipAddr = req.headers['x-forwarded-for'] || req.connection.remoteAddress || '127.0.0.1';
 
 
 
@@ -127,7 +124,7 @@ const createPaymentVNPay = async (req) => {
   vnp_Params['vnp_OrderType'] = orderType;
   vnp_Params['vnp_Amount'] = amount * 100;
   vnp_Params['vnp_ReturnUrl'] = returnUrl;
-  vnp_Params['vnp_IpAddr'] = ipAddr;
+  vnp_Params['vnp_IpAddr'] = encodeURIComponent(ipAddr);
   vnp_Params['vnp_CreateDate'] = createDate;
   vnp_Params = sortObject(vnp_Params);
 
@@ -145,17 +142,10 @@ const createPaymentVNPay = async (req) => {
 }
 function sortObject(obj) {
     let sorted = {};
-    let str = [];
-    let key;
-    for (key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        str.push(encodeURIComponent(key));
-      }
-    }
-    str.sort();
-    for (key = 0; key < str.length; key++) {
-      sorted[str[key]] = encodeURIComponent(obj[str[key]]);
-    }
+    let keys = Object.keys(obj).sort();
+    keys.forEach((key) => {
+        sorted[key] = obj[key];
+    });
     return sorted;
-  }
+}
 module.exports = { createPaymentMoMo, createPaymentVNPay };
