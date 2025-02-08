@@ -142,10 +142,17 @@ const createPaymentVNPay = async (req) => {
 }
 function sortObject(obj) {
     let sorted = {};
-    let keys = Object.keys(obj).sort();
-    keys.forEach((key) => {
-        sorted[key] = obj[key];
-    });
+    let str = [];
+    let key;
+    for (key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        str.push(encodeURIComponent(key));
+      }
+    }
+    str.sort();
+    for (key = 0; key < str.length; key++) {
+      sorted[str[key]] = encodeURIComponent(obj[str[key]]);
+    }
     return sorted;
-}
+  }
 module.exports = { createPaymentMoMo, createPaymentVNPay };
