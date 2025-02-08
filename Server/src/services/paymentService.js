@@ -6,14 +6,14 @@ const MOMO_CONFIG = {
     accessKey: process.env.MOMO_ACCESS_KEY,
     secretKey:  process.env.MOMO_SECRET_KEY,
     partnerCode:  process.env.MOMO_PARTNER_CODE,
-    redirectUrl: 'https://web-bakery-wine.vercel.app/',
-    ipnUrl: 'https://web-bakery-wine.vercel.app/'
+    redirectUrl: 'https://web-bakery-wine.vercel.app',
+    ipnUrl: 'https://web-bakery-wine.vercel.app'
 };
 const PAYMENT_CONFIG = {
     vnp_TmnCode: 'CWEOOKIU', // Mã website của bạn tại VNPay
     vnp_HashSecret: 'IVBAVUN30FY7F5U8PAYF09VENC7VRY5V', // Chuỗi bí mật để tạo mã hash
     vnp_Url: 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html', // Đường dẫn thanh toán của VNPay
-    vnp_ReturnUrl: 'https://web-bakery-wine.vercel.app/' // URL trả về sau khi thanh toán
+    vnp_ReturnUrl: 'https://web-bakery-wine.vercel.app' // URL trả về sau khi thanh toán
   };
 //MOMO
 const createPaymentMoMo = async (amount, method) => {
@@ -139,6 +139,7 @@ const createPaymentVNPay = async (req) => {
 
   vnp_Params['vnp_SecureHash'] = signed;
   vnpUrl += '?' + querystring.stringify(vnp_Params, { encode: false });
+  console.log('vnpUrl', vnpUrl)
     return vnpUrl
     
 }
