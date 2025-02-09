@@ -16,7 +16,7 @@ const CheckoutPage = () => {
     e.preventDefault()
     if(choiceMethod==="momo"){
       try {
-        const result = await paymentWithMomo(location.state.prices,"payWithATM");
+        const result = await paymentWithMomo(location.state.prices,"payWithATM",useId);
 
         if (result.status === "success") {
           window.location.href = result.link;
@@ -34,6 +34,7 @@ const CheckoutPage = () => {
           user: "xzxcxzczxcxzcxc",
           total: location.state.prices,
           address: "sdasd",
+          userId:useId,
           status: 1,
         };
         const response = await paymentWithVnPay(order)
@@ -52,7 +53,7 @@ const CheckoutPage = () => {
       }
       if(choiceMethod1==="qrMomo"){
         try {
-          const result = await paymentWithMomo(location.state.prices,"captureWallet");
+          const result = await paymentWithMomo(location.state.prices,"captureWallet",useId);
   
           if (result.status === "success") {
             window.location.href = result.link;

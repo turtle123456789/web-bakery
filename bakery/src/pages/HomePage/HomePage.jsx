@@ -8,15 +8,15 @@ import { deleteCartById } from '../../services/cartService'
 const HomePage = () => {
   const [toasts, setToasts] = useState([]);
   const distPatch = useDispatch()
-  const useId = useSelector(state => state.user.id)
   useEffect(()=>{
     const Urlparam = new URLSearchParams(window.location.search)
     const resultCode = Urlparam.get("resultCode")||Urlparam.get("vnp_ResponseCode")
+    const userId = Urlparam.get("vnp_OrderInfo")||Urlparam.get("orderInfo")
     console.log('resultCode', resultCode)
     if(resultCode==="0"||resultCode==="00"){
       const newToast = { id: Date.now(), content: "Thanh toán thành công", typeToast: "success" };
       async function dele() {
-        await deleteCartById(useId)
+        await deleteCartById(userId)
       }
       dele()
       setToasts((prevToasts) => [...prevToasts, newToast]);
