@@ -21,7 +21,7 @@ const createPaymentMoMo = async (amount, method,userid) => {
         const orderId = MOMO_CONFIG.partnerCode + new Date().getTime();
         const requestId = orderId;
         const extraData = '';
-        const orderInfo = userid;
+        const orderInfo = "Thanh toasn th";
         const autoCapture = true;
         const lang = 'vi';
 
