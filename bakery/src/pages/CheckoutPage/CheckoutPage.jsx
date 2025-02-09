@@ -2,14 +2,16 @@ import React, { useState } from 'react'
 import ButtonComponent from '../../Components/ButtonComponent'
 import { useLocation, useNavigate } from 'react-router'
 import { paymentWithMomo, paymentWithVnPay } from '../../services/paymentService'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { updateQuantity } from '../../redux/slices/cart'
+import { deleteCartById } from '../../services/cartService'
 const CheckoutPage = () => {
   const [choiceMethod, setChoiceMethod] = useState("")
   const [choiceMethod1, setChoiceMethod1] = useState("")
   const location = useLocation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const useId = useSelector(state => state.user.id)
   const payment = async(e)=>{
     e.preventDefault()
     if(choiceMethod==="momo"){
@@ -66,6 +68,10 @@ const CheckoutPage = () => {
       }
     }else if(choiceMethod==="cod"){
       alert("Đặt hàng thành công")
+      async function dele() {
+        await deleteCartById(useId)
+      }
+      dele()
       localStorage.removeItem("cartPaul")
       dispatch(updateQuantity(0))
       navigate("/")

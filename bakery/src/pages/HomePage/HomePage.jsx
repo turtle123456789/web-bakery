@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import ButtonComponent from '../../Components/ButtonComponent'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { updateQuantity } from '../../redux/slices/cart'
 import ToastComponent from '../../Components/ToastComponent'
+import { deleteCartById } from '../../services/cartService'
 
 const HomePage = () => {
   const [toasts, setToasts] = useState([]);
   const distPatch = useDispatch()
+  const useId = useSelector(state => state.user.id)
   useEffect(()=>{
     const Urlparam = new URLSearchParams(window.location.search)
     const resultCode = Urlparam.get("resultCode")||Urlparam.get("vnp_ResponseCode")
     console.log('resultCode', resultCode)
     if(resultCode==="0"||resultCode==="00"){
       const newToast = { id: Date.now(), content: "Thanh toán thành công", typeToast: "success" };
+      async function dele() {
+        await deleteCartById(useId)
+      }
+      dele()
       setToasts((prevToasts) => [...prevToasts, newToast]);
       localStorage.removeItem("cartPaul")
       distPatch(updateQuantity(0))

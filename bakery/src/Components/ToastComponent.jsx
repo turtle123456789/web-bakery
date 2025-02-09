@@ -26,7 +26,7 @@ const ToastComponent = ({ toasts, setToasts }) => {
   }, [toasts, setToasts]);
 
   return (
-    <div className="fixed top-28 right-0 z-50 flex flex-col gap-4">
+    <div className="fixed top-28 right-0 z-[1000] flex flex-col gap-4">
       {toasts?.map((toast) => (
         <Toast
           key={toast.id}

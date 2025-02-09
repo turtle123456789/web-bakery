@@ -9,3 +9,12 @@ export const getAllProduct = async () => {
     throw error;
   }
 };
+export const getProductById = async (id) => {
+  try {
+    const response = await api.get(`/products/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error when taking the product:", error);
+    throw error;
+  }
+};

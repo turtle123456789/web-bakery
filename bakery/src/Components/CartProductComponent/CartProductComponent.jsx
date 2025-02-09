@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {  useEffect } from 'react';
 import { formatPrice } from '../../utils/format';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateQuantity } from '../../redux/slices/cart';
+import { addCart } from '../../services/cartService';
 const CartProductComponent = ({ id, img, nameProduct, price,setToasts }) => {
     const dispatch = useDispatch()
-    const addCart = () => {
+    const useId = useSelector(state => state.user.id)
+    const addToCart = async() => {
         try {
             const cart = JSON.parse(localStorage.getItem("cartPaul")) || [];
             const existingProduct = cart.find(product => product.id === id);
@@ -14,6 +15,9 @@ const CartProductComponent = ({ id, img, nameProduct, price,setToasts }) => {
                 existingProduct.quantity += 1;
             } else {
                 cart.push({ id, img, nameProduct, price, quantity: 1 });
+            }
+            if(useId){
+                await addCart(useId,id,1)
             }
             localStorage.setItem("cartPaul", JSON.stringify(cart));
             const newQuantity = cart.reduce((total,item)=> total+item.quantity,0) 
@@ -26,11 +30,6 @@ const CartProductComponent = ({ id, img, nameProduct, price,setToasts }) => {
             setToasts((prevToasts) => [...prevToasts, newToast]);
         }
     };
-    useEffect(() => {
-
-    }, []);
-    
-
     return (
         <div className='px-[9px] pb-[40px] min-h-[400px] group'>
             <div className='relative'>
@@ -53,7 +52,7 @@ const CartProductComponent = ({ id, img, nameProduct, price,setToasts }) => {
                     <div className='border-2 border-black transition-all duration-300 group-hover:h-[53px] group-hover:opacity-100 h-0 opacity-0'>
                         <button
                             className='bg-black border-2 border-white w-full h-full text-white text-xs font-bold'
-                            onClick={()=>addCart()}
+                            onClick={()=>addToCart()}
                         >
                             ADD TO BASKET
                         </button>

@@ -136,7 +136,6 @@ const createPaymentVNPay = async (req) => {
 
   vnp_Params['vnp_SecureHash'] = signed;
   vnpUrl += '?' + querystring.stringify(vnp_Params, { encode: false });
-  console.log('vnpUrl', vnpUrl)
     return vnpUrl
     
 }

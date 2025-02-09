@@ -1,46 +1,90 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router'
 import { Rating } from "flowbite-react";
 import { FaHeart } from "react-icons/fa";
 import { Accordion } from "flowbite-react";
-import ButtonComponent from '../../Components/ButtonComponent';
 import QuantityComponent from '../../Components/QuantityComponent';
+import { getProductById } from '../../services/productService';
+import { formatPrice } from '../../utils/format';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateQuantity } from '../../redux/slices/cart';
+import ToastComponent from '../../Components/ToastComponent';
+import ButtonComponent from '../../Components/ButtonComponent';
+import { addCart } from '../../services/cartService';
 
 const ProductDetailPage = () => {
   const [choicePiece,setChoicePiece] = useState([false,false])
+  const [productDetai,setProductDetai] = useState({})
+  const [toasts, setToasts] = useState([]);
   const [quantity,setQuantity] = useState(1)
-  const navigate = useNavigate()
+  const {id} = useParams()
+  const useId = useSelector(state => state.user.id)
+  const dispatch = useDispatch()
   const symbol = ">"
   const updatePiece = (index) => {
     setChoicePiece(prev =>
       prev.map((_, idx) => idx === index) 
     );
   };
+  const hanldAddProduct = async()=>{
+    try {
+        const cart = JSON.parse(localStorage.getItem("cartPaul")) || [];
+        const existingProduct = cart.find(product => product.id === productDetai._id);
+        if (existingProduct) {
+            existingProduct.quantity += quantity;
+        } else {
+            cart.push({ id:productDetai._id, img:productDetai.image, nameProduct:productDetai.name, price:productDetai.price, quantity: quantity });
+        }
+        if(useId){
+          await addCart(useId, productDetai._id, quantity)
+        }
+        localStorage.setItem("cartPaul", JSON.stringify(cart));
+        const newQuantity = cart.reduce((total,item)=> total+item.quantity,0) 
+        dispatch(updateQuantity(newQuantity))
+        const newToast = { id: Date.now(), content: "Add product success", typeToast: "success" };
+
+        setToasts((prevToasts) => [...prevToasts, newToast]);
+    } catch (error) {
+        const newToast = { id: Date.now(), content: "Add product error", typeToast: "error" };
+        setToasts((prevToasts) => [...prevToasts, newToast]);
+    }
+  }
+  const fetchProduct = async(id)=>{
+    const res = await getProductById(id)
+    if(res.status==="success"){
+      setProductDetai(res.data)
+    }
+  }
+  useEffect(() => {
+    fetchProduct(id)
+  }, [id])
+  
   return (
     <div>
+       <ToastComponent toasts={toasts} setToasts={setToasts}/>
       <div className=''>
         <Link className='text-[11px] text-[#c4c4c4] mr-2'>
           home
         </Link>
         {symbol}
         <Link className='text-[11px] ml-2'>      
-          Millefeuille Cake
+          {productDetai.category}
         </Link>
       </div>
       <div className='flex px-[9px]'>
         <div className='w-[58%] pr-[44px]'>
           <div className='mb-5'>
-            <img src="https://www.paul-uk.com/media/catalog/product/s/k/sku-millefauille-1.png" alt="" />
+            <img className='w-full' src={`/assest/cake/${productDetai.image}`} alt="" />
           </div>
           <div>
-            <img src="https://www.paul-uk.com/media/catalog/product/s/k/sku-millefauille-1b.png" alt="" />
+            <img className='w-full'  src={`/assest/cake/${productDetai.image}`}  alt="" />
           </div>
         </div>
         <div className='w-[42%]'>
-          <h3 className='text-[22px] mb-5'>Millefeuille Cake</h3>
+          <h3 className='text-[22px] mb-5'>{productDetai.name}</h3>
           <div >
             <div className='flex'>
-              <span className=''>£30.95</span>
+              <span className=''>{formatPrice(productDetai.price) }</span>
               <div className='text-xs flex gap-2 items-center ml-7 mb-[10px]'>
                 <Rating size='xs'>
                   <Rating.Star />
@@ -88,9 +132,9 @@ const ProductDetailPage = () => {
               <div>
                 <h3 className='py-5'>Quantity</h3>
                 <div className='flex justify-between items-end'>
-                  <QuantityComponent quantity={quantity} setQuantity={setQuantity} />
-                  <div onClick={()=>{navigate("/cart")}}>
-                    <ButtonComponent contentButton="ADD TO BASKET - 35"/>
+                <QuantityComponent setQuantity={setQuantity}/>
+                  <div onClick={()=>{hanldAddProduct()}}>
+                    <ButtonComponent contentButton={`ADD TO BASKET - ${formatPrice(productDetai.price*quantity)}`}/>
                   </div>
                 </div>
               </div>

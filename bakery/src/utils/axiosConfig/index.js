@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "https://web-bakery.onrender.com",
+  baseURL: "http://localhost:2006",
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",

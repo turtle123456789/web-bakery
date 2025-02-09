@@ -4,17 +4,30 @@ import { Link } from 'react-router';
 import ModalsLoginComponent from './Modals/ModalsLoginComponent';
 import ModalsCreateComponent from './Modals/ModalsCreateComponent';
 import { useSelector } from 'react-redux'
+import ToastComponent from './ToastComponent';
 const HeaderComponents = () => {
   const [isCroll,setIsCroll] = useState(false)
   const [isSignIn, setIsSignIn] = useState(false)
   const [isCreate, setIsCreate] = useState(false)
+  const [toasts, setToasts] = useState([]);
   const quantity = useSelector(state => state.cart.quantity)
+  const user = useSelector(state => state.user.userName)
+  const swapModal = () =>{
+    setIsCreate(isSignIn)
+    setIsSignIn(isCreate)
+  }
   const checkScroll = () => {
     if(window.scrollY >= 40){
       setIsCroll(true)
     }else{
       setIsCroll(false)
     }
+  }
+  const handleLogout = ()=>{
+    localStorage.removeItem("cartPaul")
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+    window.location.href="/"
   }
   useEffect(()=>{
     requestAnimationFrame(() => {
@@ -27,8 +40,9 @@ const HeaderComponents = () => {
   }, [])
   return (
     <div>
-      <ModalsLoginComponent openModal={isSignIn} setOpenModal={setIsSignIn}/>
-      <ModalsCreateComponent openModal={isCreate} setOpenModal={setIsCreate}/>
+      <ToastComponent toasts={toasts} setToasts={setToasts}/>
+      <ModalsLoginComponent openModal={isSignIn} setOpenModal={setIsSignIn} swapModal={swapModal} toasts={toasts} setToasts={setToasts}/>
+      <ModalsCreateComponent openModal={isCreate} setOpenModal={setIsCreate} swapModal={swapModal} toasts={toasts} setToasts={setToasts}/>
       <div className='bg-black'>
         <div className='container flex justify-between py-3'>
           <div className='flex items-center gap-8'>
@@ -63,9 +77,17 @@ const HeaderComponents = () => {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
               </svg>
-              <Dropdown inline renderTrigger={() => <span>My Account</span>} className='mt-1 -ml-8 rounded-none'>
+              <Dropdown inline renderTrigger={() => <span>{user?user:"My Account"}</span>} className='mt-1 -ml-8 rounded-none'>
+              {user ? (
+                <>
+                  <Dropdown.Item onClick={()=>{setIsSignIn(true)}}>Profile</Dropdown.Item>
+                  <Dropdown.Item onClick={()=>{handleLogout()}}>Log out</Dropdown.Item>
+                </>
+              ):
+              <>
                 <Dropdown.Item onClick={()=>{setIsSignIn(true)}}>Sign In</Dropdown.Item>
                 <Dropdown.Item onClick={()=>{setIsCreate(true)}}>Create an Account</Dropdown.Item>
+              </>}
               </Dropdown>
             </Link>
 
