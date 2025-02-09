@@ -23,7 +23,9 @@ const HomePage = () => {
         distPatch(updateQuantity(0))
         dele()
       } catch (error) {
-          console.log(error);
+        setToasts((prevToasts) => [...prevToasts, newToast]);
+        localStorage.removeItem("cartPaul")
+        distPatch(updateQuantity(0))
       }
     
      
