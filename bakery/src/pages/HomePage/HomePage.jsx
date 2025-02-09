@@ -12,16 +12,21 @@ const HomePage = () => {
     const Urlparam = new URLSearchParams(window.location.search)
     const resultCode = Urlparam.get("resultCode")||Urlparam.get("vnp_ResponseCode")
     const userId = Urlparam.get("vnp_OrderInfo")||Urlparam.get("orderInfo")
-    console.log('resultCode', resultCode)
     if(resultCode==="0"||resultCode==="00"){
-      const newToast = { id: Date.now(), content: "Thanh toán thành công", typeToast: "success" };
-      async function dele() {
-        await deleteCartById(userId)
+      try {
+        const newToast = { id: Date.now(), content: "Thanh toán thành công", typeToast: "success" };
+        async function dele() {
+          await deleteCartById(userId)
+        }
+        setToasts((prevToasts) => [...prevToasts, newToast]);
+        localStorage.removeItem("cartPaul")
+        distPatch(updateQuantity(0))
+        dele()
+      } catch (error) {
+          console.log(error);
       }
-      dele()
-      setToasts((prevToasts) => [...prevToasts, newToast]);
-      localStorage.removeItem("cartPaul")
-      distPatch(updateQuantity(0))
+    
+     
     }
   },[distPatch])
   return (
