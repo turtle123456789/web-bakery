@@ -21,7 +21,7 @@ const createPaymentMoMo = async (amount, method,userid) => {
         const orderId = MOMO_CONFIG.partnerCode + new Date().getTime();
         const requestId = orderId;
         const extraData = '';
-        const orderInfo = userid;
+        const orderInfo = userid||"Thanh toán momo thành công";
         const autoCapture = true;
         const lang = 'vi';
         console.log('orderInfo', orderInfo)
@@ -106,7 +106,7 @@ const createPaymentVNPay = async (req) => {
   var orderId = moment().format('HHmmss');
   var amount = req.body.total;
 
-  var orderInfo = req.body.userId;
+  var orderInfo = req.body.userId||"Thanh toan Vnpay thanh cong";
   var orderType = "other";
   var locale = req.body.language;
   if(locale === undefined || locale === ''){
