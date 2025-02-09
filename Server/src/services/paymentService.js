@@ -16,12 +16,12 @@ const PAYMENT_CONFIG = {
     vnp_ReturnUrl: 'https://web-bakery-wine.vercel.app' // URL trả về sau khi thanh toán
   };
 //MOMO
-const createPaymentMoMo = async (amount, method) => {
+const createPaymentMoMo = async (amount, method,userid) => {
     try {
         const orderId = MOMO_CONFIG.partnerCode + new Date().getTime();
         const requestId = orderId;
         const extraData = '';
-        const orderInfo = 'Thanh toán đơn hàng';
+        const orderInfo = userid;
         const autoCapture = true;
         const lang = 'vi';
         console.log('orderInfo', orderInfo)

@@ -2,9 +2,9 @@ const { createPaymentMoMo, createPaymentVNPay } = require('../services/paymentSe
 
 const paymentControllerMoMo = async (req, res) => {
     try {
-        const { amounts, method } = req.body;
+        const { amounts, method,userid } = req.body;
         if (!amounts || !method) {
-            return res.status(400).json({ status: "error", message: "Thiếu thông tin thanh toán" });
+            return res.status(400).json({ status: "error", message: "Thiếu thông tin thanh toán",userid });
         }
         
         const result = await createPaymentMoMo(amounts, method);
