@@ -13,20 +13,18 @@ const HomePage = () => {
     const resultCode = Urlparam.get("resultCode")||Urlparam.get("vnp_ResponseCode")
     const userId = Urlparam.get("vnp_OrderInfo")||Urlparam.get("orderInfo")
     if(resultCode==="0"||resultCode==="00"){
+      localStorage.removeItem("cartPaul")
+      distPatch(updateQuantity(0))
       try {
         const newToast = { id: Date.now(), content: "Thanh toán thành công", typeToast: "success" };
         async function dele() {
           await deleteCartById(userId)
         }
         setToasts((prevToasts) => [...prevToasts, newToast]);
-        localStorage.removeItem("cartPaul")
-        distPatch(updateQuantity(0))
+
         dele()
       } catch (error) {
-        const newToast = { id: Date.now(), content: "Thanh toán thành công", typeToast: "success" };
         setToasts((prevToasts) => [...prevToasts, newToast]);
-        localStorage.removeItem("cartPaul")
-        distPatch(updateQuantity(0))
       }
     
      
