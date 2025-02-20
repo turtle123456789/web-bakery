@@ -41,7 +41,7 @@ const HomePage = () => {
         <div className='text-center '>
           <h1 className='text-[34px] mt-3 pt-3'>Mang hương vị Pháp về nhà bạn!</h1>
           <div className='flex justify-center mb-3'>
-            <hr className='h-[2px] bg-black w-[119px]'/>
+            <hr className='h-[2px] bg-black w-[246px]'/>
           </div>
           <p className='text-[13px]'>
             Thưởng thức những chiếc bánh kem tinh tế và tươi ngon được tạo nên từ bí quyết truyền thống chuẩn Pháp của 
