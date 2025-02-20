@@ -96,8 +96,8 @@ const HeaderComponents = () => {
           </div>
         </div>
       </div>
-      <div className={`container ${isCroll?"fixed  left-0 right-0 z-10 shadow-lg top-0 ":"top-[40px]"} ` }>
-        <Navbar fluid className='py-[21px] px-[9px]'>
+      <div className={` ${isCroll?"fixed  left-0 right-0 z-10 shadow-lg top-0 ":"top-[40px]"} ` }>
+        <Navbar fluid className=' container py-[21px] px-[9px]'>
           <Navbar.Brand  as={Link} to="/">
             {/* <img width={133} height={48} loading='lazy' src="https://www.paul-uk.com/media/logo/stores/1/logo.png" alt="Flowbite React Logo" /> */}
             <img width={200}  loading='lazy' src="/assest/logo_bakery.png" alt="Flowbite React Logo" />
