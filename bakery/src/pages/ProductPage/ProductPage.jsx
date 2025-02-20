@@ -25,7 +25,7 @@ const ProductPage = () => {
       <ToastComponent toasts={toasts} setToasts={setToasts}/>
       <div className='flex justify-center items-center'>
         <Link className='text-[11px] text-[#c4c4c4] mr-2' to ="/home">
-          Home
+          Trang chủ 
         </Link>
         {symbol}
         <Link className='text-[11px] ml-2'>
@@ -39,7 +39,7 @@ const ProductPage = () => {
         <div className='my-6'>
           <img src="https://www.paul-uk.com/media/catalog/category/Cake_Jan_2025_banner.jpg" alt="" />
         </div>
-        <p className='text-sm'>At PAUL, we have a cake for every occasion. Explore our ra... <b className='underline'>Read More</b></p>
+        <p className='text-sm'>Tại Paul Bakery, chúng tôi có những chiếc bánh hoàn hảo cho mọi dịp. Hãy khám phá... <b className='underline'>Đọc thêm</b></p>
       </div>
       <div>
         <div>
@@ -58,29 +58,42 @@ const ProductPage = () => {
                   />
               ))
             ) : (
-              <p className="text-center col-span-4">There is no product.</p>
+              <p className="text-center col-span-4">Không có sản phẩm nào. </p>
             )}
           </div>
         </div>
         <div className='text-center'>
-          <h3 className='text-[22px]'>Best Cakes in London, UK</h3>
+          <h3 className='text-[22px]'>Những chiếc bánh ngon nhất</h3>
           <div className='text-sm'>
+            {/* <br />
+            <p>We’ve been baking glorious cakes for almost 70 years now, a
+              nd the range of PAUL cakes we offer today includes both French classics and m
+              ore contemporary favourites, with plenty of French chic. All are tried, tested and 
+              loved by our customers, and available for delivery in London.  </p> */}
             <br />
-            <p>We’ve been baking glorious cakes for almost 70 years now, and the range of PAUL cakes we offer today includes both French classics and more contemporary favourites, with plenty of French chic. All are tried, tested and loved by our customers, and available for delivery in London.  </p>
+            <p>Cuộc sống chỉ đẹp hơn khi có bánh, và không có dịp đặc biệt hay lễ kỷ niệm nào – sinh nhật, kỷ niệm, nghỉ hưu, đoàn tụ – 
+              là trọn vẹn nếu thiếu một món bánh tuyệt vời để chia sẻ. 
+              Mỗi chiếc bánh PAUL là một lễ kỷ niệm nhỏ và được thiết kế để thêm niềm vui cho ngày vui của bạn. 
+              Bộ sưu tập của chúng tôi bao gồm các loại bánh cũng có thể làm món tráng miệng ngon tuyệt, 
+              chẳng hạn như Bánh phô mai dâu tây mùa hè và Bánh phô mai mơ thanh lịch, béo ngậy của chúng tôi,
+               và Bánh Charlottes dâu tây hoặc mâm xôi Pháp chính hiệu của chúng tôi , chứa đầy kem Bavarian nhẹ nhất, 
+               mịn nhất và phủ đầy quả mọng tươi.   </p>
             <br />
-            <p>Life is just better with cake, and no special or celebratory occasion – birthday, anniversary, retirement, reunion – is complete without a showstopping confection to share. Every PAUL cake is a little celebration and designed to add joy to your happy day. Our collection includes cakes that also make for delectable desserts, such as our elegant, creamy Strawberry Summer Cheesecake and Apricot Cheesecake, and our authentic French Strawberry or Raspberry Charlottes, filled with the lightest, smoothest Bavarian cream and generously topped with fresh berries.  </p>
-            <br />
-            <p>Fruity or chocolaty, creamy or nutty, there’s something for everyone, and any occasion, with our cake delivery in London. </p>
+            <p>Hương trái cây hay sô cô la, kem hay hạt, chúng tôi đều có loại bánh phù hợp với mọi người và mọi dịp, với dịch vụ giao bánh tại TP. Hồ Chí Minh.  </p>
           </div>
           <br />
-          <h3 className='text-[22px]'>Order Cake Online for Delivery</h3>
+          <h3 className='text-[22px]'>Đặt bánh tại trang của chúng tôi </h3>
           <div className='text-sm'>
             <br />
-            <p>Once you place your order, our expert bakers get to work to bake and decorate your cake, and our team of PAUL drivers will bring your order direct to your door.  Our London cake delivery service covers most London postcodes. All you need to do is make sure you place your order by noon on the day before you want your delivery to arrive. Then just leave the hard work to us..  </p>
+            <p>Sau khi bạn đặt hàng, các thợ làm bánh chuyên nghiệp của chúng tôi sẽ bắt tay vào làm và trang trí bánh cho bạn, 
+              và sau đó sẽ giao cho đơn vị vận chuyển mang đơn hàng của bạn đến tận nhà bạn. 
+              Tất cả những gì bạn cần làm là đặt hàng, theo dõi đơn hàng của bạn và nhận hàng. 
+              Hãy để chúng tôi lo phần việc khó khăn còn lại.    </p>
             <br />
-            <p>You can also request Click and Collect, to pick up your cake from your nearest PAUL bakery.  </p>
             <br />
-            <p>Whether you’re celebrating a special occasion, sending a delicious surprise to someone you love, or you see cake as one of life’s little necessary, regular indulgences (we agree, by the way), we wish you a bon appétit.  </p>
+            <p>Cho dù bạn đang ăn mừng một dịp đặc biệt, gửi một món quà bất ngờ ngon lành đến người mình yêu 
+              hay coi bánh ngọt là một trong những món ăn vặt cần thiết và thường xuyên trong cuộc sống (chúng tôi cũng đồng ý), 
+              chúng tôi đều chúc bạn ngon miệng!    </p>
           </div>
         </div>
       </div>

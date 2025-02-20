@@ -22,10 +22,10 @@ const ModalsLoginComponent = ({ openModal, setOpenModal, swapModal,setToasts }) 
     let errors = { email: '', password: '' };
 
     if (!email.trim()) {
-      errors.email = 'Email cannot be empty';
+      errors.email = 'Email không được để trống';
     }
     if (!password.trim()) {
-      errors.password = 'Password cannot be empty';
+      errors.password = 'Mật khẩu không được để trống';
     }
 
     setError(errors);
@@ -57,9 +57,9 @@ const ModalsLoginComponent = ({ openModal, setOpenModal, swapModal,setToasts }) 
       <Modal.Header />
       <Modal.Body>
         <div className="my-4">
-          <h3 className="text-[24px]">Login</h3>
+          <h3 className="text-[24px]">Đăng nhập</h3>
           <h4 className='text-[12px]'>
-            Please login to receive many incentives.
+          Vui lòng đăng nhập để nhận được nhiều ưu đãi.
           </h4>
           <div className='my-2 mt-4'>
             <div className="mb-2 block">
@@ -77,11 +77,11 @@ const ModalsLoginComponent = ({ openModal, setOpenModal, swapModal,setToasts }) 
           </div>
           <div className='my-2'>
             <div className="mb-2 block">
-              <Label htmlFor="password" value="Password" />
+              <Label htmlFor="password" value="Mật khẩu" />
             </div>
             <input
               className={`w-full p-2 border ${error.password ? 'border-red-500' : 'border-gray-300'} focus:ring-gray-500 focus:border-gray-500`}
-              placeholder='password'
+              placeholder='Nhập mật khẩu'
               id="password"
               type="password"
               value={password}
@@ -93,19 +93,19 @@ const ModalsLoginComponent = ({ openModal, setOpenModal, swapModal,setToasts }) 
           <div className="flex justify-between my-2">
             <div className="flex items-center gap-2">
               <Checkbox id="remember" />
-              <Label htmlFor="remember">Remember me</Label>
+              <Label htmlFor="remember">Ghi nhớ</Label>
             </div>
             <Link to="" className="text-sm hover:underline">
-              Lost Password?
+             Quên mật khẩu 
             </Link>
           </div>
           <div className="w-full flex justify-center my-2" onClick={handleSubmit}>
             <ButtonComponent contentButton="SIGN IN"  />
           </div>
           <div className="flex justify-center text-sm my-3">
-            Don't you have an account?&nbsp;
+            Bạn chưa có tài khoản?&nbsp;
             <Link to="" onClick={() => swapModal()} className="hover:underline">
-              Create account
+              Tạo tài khoản 
             </Link>
           </div>
         </div>

@@ -64,7 +64,7 @@ const ProductDetailPage = () => {
        <ToastComponent toasts={toasts} setToasts={setToasts}/>
       <div className=''>
         <Link className='text-[11px] text-[#c4c4c4] mr-2'>
-          home
+          Trang chủ
         </Link>
         {symbol}
         <Link className='text-[11px] ml-2'>      
@@ -94,43 +94,43 @@ const ProductDetailPage = () => {
                   <Rating.Star filled={false} />
                 </Rating>
                 <span>(1)</span>
-                <Link className='text-xs underline'>Read Reviews</Link>
+                <Link className='text-xs underline'>Đọc đánh giá</Link>
               </div>
             </div>
-            <p className='text-xs'>In our millefeuille puff pastry layers house a rum-laced v... <Link className='text-xs font-bold underline'>Read More</Link></p>
+            <p className='text-xs'>Trong các lớp bánh của chúng tôi chứa một ... <Link className='text-xs font-bold underline'>Read More</Link></p>
             <div className='bg-[#f1efe9] p-5 my-4'>
               <div className='mb-5'>
-                <h4 className=''>Check Availability</h4>
-                <p className='text-[13px] '>Ensure that this product is available for delivery or collection in your area</p>
+                <h4 className=''>Kiểm tra tính khả dụng</h4>
+                <p className='text-[13px] '>Đảm bảo rằng sản phẩm này có sẵn để giao hàng hoặc thu thập trong khu vực của bạn.</p>
               </div>
               <div>
                   <div className="flex justify-between gap-5 ">
                     <div className='min-w-[302px]'>
-                      <input type="text" placeholder='Enter your postcode here' className='text-xs h-full w-full pl-[18px]' />
+                      <input type="text" placeholder='Nhập mã bưu chính của bạn ở đây' className='text-xs h-full w-full pl-[18px]' />
                     </div>
                     <div className='w-[121px] h-[47px]'>
-                      <button className='bg-black text-white text-xs w-full h-full'>CHECK</button>
+                      <button className='bg-black text-white text-xs w-full h-full'>KIỂM TRA</button>
                     </div>
                   </div>
               </div>
             </div>
             <div className='pt-3 pb-5 border-b'>
-              <h4 className=''>Free Personalised Cake Message (Note: Plaque Contains Nuts)</h4>
-              <p className='text-[13px] mb-5'><b>Note: Plaque contain nuts.</b> Heartfelt message can make a significant impact.</p>
+              <h4 className=''>Thông điệp bánh được cá nhân hóa miễn phí</h4>
+              <p className='text-[13px] mb-5'><b>Lưu ý: Sản phẩm có chứa các loại hạt.</b> Thông điệp chân thành có thể tạo ra tác động đáng kể.</p>
               <div className='w-[165px] h-[36px]'>
-                <button className='bg-black text-white text-xs w-full h-full'>Add a message - FREE</button>
+                <button className='bg-black text-white text-xs w-full h-full '>Gửi một tin nhắn - MIỄN PHÍ</button>
               </div>
             </div>
             <div className=''>
               <div className=''>
-                <h3 className='py-5'>Select a size</h3>
+                <h3 className='py-5'>Chọn một cỡ</h3>
                 <div className='flex gap-4'>
-                  <div className={`w-[120px] ease-in duration-500 cursor-pointer h-[40px] border border-gray-300 text-xs flex justify-center items-center  ${choicePiece[0]?"bg-black text-white":""} hover:text-white hover:bg-black`} onClick={()=>updatePiece(0)}>6-8 pieces</div>
-                  <div className={`w-[120px] ease-in duration-500 cursor-pointer h-[40px] border border-gray-300 text-xs flex justify-center items-center  ${choicePiece[1]? "bg-black text-white":""} hover:text-white hover:bg-black `} onClick={()=>updatePiece(1)}>12-16 pieces</div>
+                  <div className={`w-[120px] ease-in duration-500 cursor-pointer h-[40px] border border-gray-300 text-xs flex justify-center items-center  ${choicePiece[0]?"bg-black text-white":""} hover:text-white hover:bg-black`} onClick={()=>updatePiece(0)}>6-8 miếng</div>
+                  <div className={`w-[120px] ease-in duration-500 cursor-pointer h-[40px] border border-gray-300 text-xs flex justify-center items-center  ${choicePiece[1]? "bg-black text-white":""} hover:text-white hover:bg-black `} onClick={()=>updatePiece(1)}>12-16 miếng</div>
                 </div>
               </div>
               <div>
-                <h3 className='py-5'>Quantity</h3>
+                <h3 className='py-5'>Số lượng</h3>
                 <div className='flex justify-between items-end'>
                 <QuantityComponent setQuantity={setQuantity}/>
                   <div onClick={()=>{hanldAddProduct()}}>
@@ -141,12 +141,12 @@ const ProductDetailPage = () => {
               <div className='mt-5'>
                 <Link className='flex items-center text-xs'>
                   <FaHeart />
-                  Add to Wishlist
+                  Thêm vào danh sách yêu thích 
                 </Link>
                 <div className='mt-7'>
                   <Accordion className='rounded-none'>
                   <Accordion.Panel className=''>
-                    <Accordion.Title  className='hover:bg-black hover:text-white hover:rounded-none open:bg-black open:rounded-none open:text-white focus:ring-0 focus:shadow-none '>Description</Accordion.Title>
+                    <Accordion.Title  className='hover:bg-black hover:text-white hover:rounded-none open:bg-black open:rounded-none open:text-white focus:ring-0 focus:shadow-none '>Mô tả</Accordion.Title>
                     <Accordion.Content className='text-xs'>
                       <p>A true French classic enjoyed since the 1600s, Millefeuille, otherwise known as a vanilla slice, translates as a thousand sheets, referring to the layers of the puff pastry used to make this irresistible dessert. For those with a sweet tooth, the puff pastry has been caramelised in sugar, making it deliciously crispy. Sandwiched between the layers of puff pastry is a rum-laced custard cream, making this cake something quite special. The cake is finished with a very thin layer of apricot jam for added sweetness and a delicate layer of white fondant icing. A firm favourite for occasions and get togethers, this simple but delicious cake can be personalised for that extra special touch.  Size: </p>
                       <p>6-8 servings - 9.3" x 6" (23.5cm x 15cm)</p>
@@ -157,7 +157,7 @@ const ProductDetailPage = () => {
                     </Accordion.Content>
                   </Accordion.Panel>
                   <Accordion.Panel className=''>
-                    <Accordion.Title  className='hover:bg-black hover:text-white hover:rounded-none open:bg-black open:rounded-none open:text-white focus:ring-0 focus:shadow-none '>Nutritional</Accordion.Title>
+                    <Accordion.Title  className='hover:bg-black hover:text-white hover:rounded-none open:bg-black open:rounded-none open:text-white focus:ring-0 focus:shadow-none '>Dinh dưỡng</Accordion.Title>
                     <Accordion.Content className='text-xs'>
                       <p>A true French classic enjoyed since the 1600s, Millefeuille, otherwise known as a vanilla slice, translates as a thousand sheets, referring to the layers of the puff pastry used to make this irresistible dessert. For those with a sweet tooth, the puff pastry has been caramelised in sugar, making it deliciously crispy. Sandwiched between the layers of puff pastry is a rum-laced custard cream, making this cake something quite special. The cake is finished with a very thin layer of apricot jam for added sweetness and a delicate layer of white fondant icing. A firm favourite for occasions and get togethers, this simple but delicious cake can be personalised for that extra special touch.  Size: </p>
                       <p>6-8 servings - 9.3" x 6" (23.5cm x 15cm)</p>
@@ -167,7 +167,7 @@ const ProductDetailPage = () => {
                       <p>(Contains Almond and may contain other nuts)</p>
                     </Accordion.Content>
                   </Accordion.Panel>
-                  <Accordion.Panel className=''>
+                  {/* <Accordion.Panel className=''>
                     <Accordion.Title  className='hover:bg-black hover:text-white hover:rounded-none open:bg-black open:rounded-none open:text-white focus:ring-0 focus:shadow-none '>Allergens Present</Accordion.Title>
                     <Accordion.Content className='text-xs'>
                       <p>A true French classic enjoyed since the 1600s, Millefeuille, otherwise known as a vanilla slice, translates as a thousand sheets, referring to the layers of the puff pastry used to make this irresistible dessert. For those with a sweet tooth, the puff pastry has been caramelised in sugar, making it deliciously crispy. Sandwiched between the layers of puff pastry is a rum-laced custard cream, making this cake something quite special. The cake is finished with a very thin layer of apricot jam for added sweetness and a delicate layer of white fondant icing. A firm favourite for occasions and get togethers, this simple but delicious cake can be personalised for that extra special touch.  Size: </p>
@@ -177,9 +177,9 @@ const ProductDetailPage = () => {
                       <p>Add A Personal Message To Your Cake On a Separate Marzipan Plaque – character limit 25 (including space)</p>
                       <p>(Contains Almond and may contain other nuts)</p>
                     </Accordion.Content>
-                  </Accordion.Panel>
+                  </Accordion.Panel> */}
                   <Accordion.Panel className=''>
-                    <Accordion.Title  className='hover:bg-black hover:text-white hover:rounded-none open:bg-black open:rounded-none open:text-white focus:ring-0 focus:shadow-none '>Reviews</Accordion.Title>
+                    <Accordion.Title  className='hover:bg-black hover:text-white hover:rounded-none open:bg-black open:rounded-none open:text-white focus:ring-0 focus:shadow-none '>Đánh giá</Accordion.Title>
                     <Accordion.Content className='text-xs'>
                       <p>A true French classic enjoyed since the 1600s, Millefeuille, otherwise known as a vanilla slice, translates as a thousand sheets, referring to the layers of the puff pastry used to make this irresistible dessert. For those with a sweet tooth, the puff pastry has been caramelised in sugar, making it deliciously crispy. Sandwiched between the layers of puff pastry is a rum-laced custard cream, making this cake something quite special. The cake is finished with a very thin layer of apricot jam for added sweetness and a delicate layer of white fondant icing. A firm favourite for occasions and get togethers, this simple but delicious cake can be personalised for that extra special touch.  Size: </p>
                       <p>6-8 servings - 9.3" x 6" (23.5cm x 15cm)</p>

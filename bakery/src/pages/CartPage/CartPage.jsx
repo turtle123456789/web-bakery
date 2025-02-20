@@ -34,14 +34,14 @@ const CartPage = () => {
     <div>
       <div className='grid grid-cols-3 my-7'>
         <div className='col-span-2 mx-2'>
-          <h1 className='text-[22px]'>Your Basket ({cart.length} item)</h1>
-          <p className='flex items-start text-[12px] my-1'><IoIosLock className='text-[15px]'/> Your order will be processed in a secure environment.</p>
+          <h1 className='text-[22px]'>Giỏ hàng của bạn  ({cart.length} món)</h1>
+          <p className='flex items-start text-[12px] my-1'><IoIosLock className='text-[15px]'/> Đơn hàng của bạn sẽ được xử lý trong một môi trường an toàn. </p>
           <div className='mt-7'>
             <div className='text-[8px] grid grid-cols-6 px-1 '>
-              <span className='col-span-3'>ITEM</span>
-              <span className='col-span-1 text-center'>QUANTITY</span>
-              <span className='col-span-1 text-center'>UNIT PRICE</span>
-              <span className='col-span-1 text-center'>SUBTOTAL PRICE</span>
+              <span className='col-span-3'>TÊN SẢN PHẨM </span>
+              <span className='col-span-1 text-center'>SỐ LƯỢNG </span>
+              <span className='col-span-1 text-center'>ĐƠN GIÁ </span>
+              <span className='col-span-1 text-center'>TỔNG CỘNG</span>
             </div>
             <div className='mt-3 border border-gray-300 shadow-md border-b-0 '>
               {cart.length>0 && cart.map((data,index)=>{
@@ -52,11 +52,11 @@ const CartPage = () => {
                   </div>
                   <div className='col-span-2 px-3'>
                     <h3 className='text-[13px]'>{data.nameProduct}</h3>
-                    <p className='text-[9px]'>Size: 4 pieces</p>
+                    <p className='text-[9px]'>Cỡ: 4 miếng</p>
                   </div>
                   <div className='col-span-1 justify-items-center px-3'>
                     <QuantityComponent isLoading={isLoading} setIsLoading={setIsLoading} data={data} width={90} height={30}/>
-                    <button className='mt-2 underline' onClick={()=>hanleRemove(data.id)}>Remove item</button>
+                    <button className='mt-2 underline' onClick={()=>hanleRemove(data.id)}>Xóa sản phẩm </button>
                   </div>
                   <div className='col-span-1 px-3 text-center'>
                     <p>{formatPrice(data.price)}</p>
@@ -72,46 +72,46 @@ const CartPage = () => {
         </div>
         <div className='col-span-1 mx-2'>
           <div className='flex flex-col justify-center items-center border border-gray-300 shadow-md px-5 py-7 '>
-            <h1 className='text-[20px]'>Discount code or Gift voucher</h1>
-            <input type="text" placeholder='Enter discount code or gift voucher' className='w-[271px] p-3 my-3 text-[12px]'  />
-            <ButtonComponent contentButton="APPLY"/>
+            <h1 className='text-[20px]'>Mã giảm giá hoặc phiếu quà tặng </h1>
+            <input type="text" placeholder='Nhập mã giảm giá hoặc phiếu quà tặng' className='w-[271px] p-3 my-3 text-[12px]'  />
+            <ButtonComponent contentButton="ÁP DỤNG"/>
           </div>
           <div className='text-center border border-gray-300 shadow-md px-5 py-7 my-3'>
-            <h1 className='text-[20px]'>Order Summary</h1>
+            <h1 className='text-[20px]'>Tóm tắt đơn hàng</h1>
             <div className='text-[13px]'>
               <div className='flex justify-between my-3'>
-                <span>Subtotal</span>
+                <span>Tổng tiền</span>
                 <span>{formatPrice(getTotalPrice())}</span>
               </div>
               <div className='flex justify-between'>
-                <span>Shipping</span>
-                <span>Not yet calculated</span>
+                <span>Phí vận chuyển</span>
+                <span>Chưa tính toán</span>
               </div>
               <div className='flex justify-between my-3'>
-                <span>Order Total</span>
+                <span>Tổng đơn hàng</span>
                 <span>{formatPrice(getTotalPrice())}</span>
               </div>
               <div className='flex justify-center' onClick={()=>{navigate("/checkout",{state:{prices:getTotalPrice()}})}}>
-                <ButtonComponent contentButton="CHECKOUT"/>
+                <ButtonComponent contentButton="THANH TOÁN"/>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div >
-        <h1 className='text-[26px] text-center my-10'>You may also like this</h1>
+        <h1 className='text-[26px] text-center my-10'>Có thể bạn cũng thích</h1>
         <div className='grid grid-cols-4 gap-1'>
           <div>
-            <CartProductComponent img="cake1.webp" nameProduct="Frosted Berries Macaron Fraisier" price={49.95} />
+            <CartProductComponent img="cake1.webp" nameProduct="Bánh Macaron Fraisier Quả Mọng" price={54000} />
           </div>
           <div>
-            <CartProductComponent img="cake2.webp" nameProduct="Charlotte Fraise Cake 7" price={34.95}/>
+            <CartProductComponent img="cake2.webp" nameProduct="Bánh Charlotte Fraise" price={52000}/>
           </div>
           <div>
-            <CartProductComponent img="cake3.webp" nameProduct="Blackcurrant Mousse Cake for 4" price={19.95}/>
+            <CartProductComponent img="cake3.webp" nameProduct="Bánh Mousse nho đen" price={42000}/>
           </div>
           <div>
-            <CartProductComponent img="cake4.webp" nameProduct="Pistachio Cake for 4" price={19.95}/>
+            <CartProductComponent img="cake4.webp" nameProduct="Bánh Pistachio" price={64000}/>
           </div>
         </div>
       </div>

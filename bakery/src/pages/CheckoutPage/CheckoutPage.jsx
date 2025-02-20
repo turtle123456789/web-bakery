@@ -84,54 +84,54 @@ const CheckoutPage = () => {
   return (
     <div className='grid grid-cols-3 gap-x-6 mt-5'>
         <div className='col-span-2 pr-8'>
-          <h1 className='text-[20px] px-2 mb-5'>Shipping Information</h1>
+          <h1 className='text-[20px] px-2 mb-5'>Thông tin giao hàng</h1>
           <div className='flex flex-wrap gap-y-4'> 
             
             <div className='w-1/2 px-2'>
-              <input type="text" placeholder='Enter FullName' className='w-full h-[50px]'  />
+              <input type="text" placeholder='Nhập tên đầu đủ ' className='w-full h-[50px]'  />
             </div>
             <div className='w-1/2 px-2'>
-              <input type="text" placeholder='Enter Phone number' className='w-full h-[50px]' />
+              <input type="text" placeholder='Nhập số điện thoại ' className='w-full h-[50px]' />
             </div>
             <div className='w-full px-2'>
-              <input type="text" placeholder='Enter Email' className='w-full h-[50px]' />
+              <input type="text" placeholder='Nhập Email' className='w-full h-[50px]' />
             </div>
             <div className='w-full px-2'>
-              <input type="text" placeholder='Enter Address' className='w-full h-[50px]'  />
+              <input type="text" placeholder='Nhập địa chỉ ' className='w-full h-[50px]'  />
             </div>
             <div className='w-1/3 px-2'>
               <select name="" id="" className='w-full text-gray-500 h-[50px]' >
-                <option value="" >Province/City</option>
-                <option value="">TP. Ho Chi Minh</option>
-                <option value="">Ha Noi</option>
-                <option value="">Binh Dinh</option>
-                <option value="">Quang Ngai</option>
+                <option value="" >Tỉnh/Thành phố </option>
+                <option value="">TP. Hồ Chí Minh </option>
+                <option value="">Hà Nội </option>
+                <option value="">Bình Định</option>
+                <option value="">Quảng Ngãi </option>
               </select>
             </div>
             <div className='w-1/3 px-2 '>
               <select name="" id="" className='w-full text-gray-500 h-[50px]' >
-                <option value="">District</option>
-                <option value="">Quan 1</option>
-                <option value="">Quan 2</option>
-                <option value="">Quan 12</option>
+                <option value="">Quận </option>
+                <option value="">Quận 1</option>
+                <option value="">Quận 2</option>
+                <option value="">Quận 12</option>
               </select>
             </div>
             <div className='w-1/3 px-2'>
               <select name="" id="" className='w-full text-gray-500 h-[50px]' >
-                <option value="">Ward/Commune</option>
+                <option value="">Phường/ Xã </option>
                 <option value="">Linh Trung</option>
-                <option value="">Linh Chieu</option>
-                <option value="">Linh Xuan</option>
+                <option value="">Linh Chiểu</option>
+                <option value="">Linh Xuân</option>
               </select>
             </div>
             <div className='w-full px-2'>
-              <input type="text" placeholder='Notes' className='w-full h-[50px]' />
+              <input type="text" placeholder='Ghi chú' className='w-full h-[50px]' />
             </div>
           </div>
             
         </div>
         <div className='col-span-1'>
-        <h1 className='text-[20px] px-2 mb-5'>Payment Method</h1>
+        <h1 className='text-[20px] px-2 mb-5'>Phương thức thanh toán</h1>
           <div onClick={() => setChoiceMethod("cod")} className={`flex items-center border border-black h-[60px] rounded-md p-3 mb-2 gap-x-5 hover:border-blue-500 hover:border-2 cursor-pointer transition-all duration-300 ${choiceMethod==="cod"?"border-blue-500 border-2":"border-black"}`}>
             <div>
               <input type="radio" name="payment" checked={choiceMethod === "cod"} onChange={(e)=>{setChoiceMethod(e.target.value)}} value={"cod"} />
@@ -140,8 +140,8 @@ const CheckoutPage = () => {
               <img src="/assest/icon-payment/COD.svg" alt="COD" />
             </div>
             <div className='text-[12px]'>
-              <p>Cash on Delivery (COD)</p>
-              <p>Pay upon delivery</p>
+              <p>Tiền mặt khi giao hàng (COD)</p>
+              <p>Thanh toán khi nhần hàng</p>
             </div>
           </div>
           <div onClick={() => setChoiceMethod("vnpay")} className={`flex items-center border border-black h-[60px] rounded-md p-3 mb-2 gap-x-5 hover:border-blue-500 hover:border-2 cursor-pointer transition-all duration-300 ${choiceMethod==="vnpay"?"border-blue-500 border-2":"border-black"}`}>
@@ -163,7 +163,7 @@ const CheckoutPage = () => {
               <img src="/assest/icon-payment/Momo-payment.jpg" alt="Momo" />
             </div>
             <div className='text-[12px]'>
-              <p>Momo Payment</p>
+              <p>Thanh toán MoMo</p>
             </div>
           </div>
           <div onClick={() => setChoiceMethod("zalopay")} className={`flex items-center border border-black h-[60px] rounded-md p-3 mb-2 gap-x-5 hover:border-blue-500 hover:border-2 cursor-pointer transition-all duration-300 ${choiceMethod==="zalopay"?"border-blue-500 border-2":"border-black"}`}>
@@ -175,7 +175,7 @@ const CheckoutPage = () => {
             </div>
             <div className='text-[12px]'>
               <p>ZaloPay E-Wallet</p>
-              <p>ATM Card/Credit Card</p>
+              <p>Thẻ ATM/ Thẻ tín dụng</p>
             </div>
           </div>
           <div onClick={() => setChoiceMethod("qrCode")} className={`overflow-hidden ${choiceMethod==="qrCode"?"h-[106px]":"h-[60px] "}  transition-all duration-300` }>
@@ -187,8 +187,8 @@ const CheckoutPage = () => {
                 <img src="/assest/icon-payment/QR-code.jpg" alt="QR Code" />
               </div>
               <div className='text-[12px]'>
-                <p>Interbank Transfer via QR Code</p>
-                <p>Transfer via E-Wallet (Momo/ZaloPay)</p>
+                <p>Chuyển khoản ngân hàng liên kết qua mã QR</p>
+                <p>Chuyển khoản qua Ví điện tử (Momo/ZaloPay)</p>
               </div>
             </div>
             <div className='flex justify-around mt-1 gap-2 border border-gray-500 '>

@@ -8,18 +8,18 @@ const ContactPage = () => {
     <div>
         <div className='flex justify-center items-center'>
             <Link className='text-[11px] text-[#c4c4c4] mr-2' to ="/home">
-                Home
+                Trang chủ 
             </Link>
             {symbol}
             <Link className='text-[11px] ml-2'>
-                Contact Us
+                Liên hệ với chúng tôi 
             </Link>
         </div>
         <div className='text-center mb-12'>
             <h1 className='text-[40px] my-5'>
-                Contact our team
+                Liên hệ với chúng tôi 
             </h1>
-            <p className='text-sm'>If you would like to leave feedback about our products or services, please fill out the form below to contact our team.</p>
+            <p className='text-sm'>Nếu bạn muốn để lại phản hồi về sản phẩm hoặc dịch vụ của chúng tôi, vui lòng điền vào biểu mẫu bên dưới để liên hệ với nhóm của chúng tôi.</p>
         </div>
         <div className='grid grid-cols-2 mx-28 gap-8'>
             <div className='col-span-1'>
@@ -32,34 +32,34 @@ const ContactPage = () => {
                         </svg>
                     </div>
                     <div className='mx-1'>
-                        <p className='text-[13px]'>Find a PAUL</p>
-                        <p className='text-[10px]'>Find your closest PAUL here.</p>
+                        <p className='text-[13px]'>Định vị </p>
+                        {/* <p className='text-[10px]'>Find your closest PAUL here.</p> */}
                     </div>
                 </div>
             </div>
             <div className='flex flex-wrap gap-y-4'> 
                 <div className='w-1/2 px-2'>
-                    <input type="text" placeholder='Last Name' className='w-full h-[50px]'  />
+                    <input type="text" placeholder='Tên  ' className='w-full h-[50px]'  />
                 </div>
                 <div className='w-1/2 px-2'>
-                    <input type="text" placeholder='First Name' className='w-full h-[50px]' />
+                    <input type="text" placeholder='Họ ' className='w-full h-[50px]' />
                 </div>
                 <div className='w-full px-2'>
                     <select name="" id="" className='w-full text-gray-500 h-[50px]' >
-                        <option value="" >Enquiry Reason</option>
+                        <option value="" >Lý do yêu cầu </option>
                     </select>
                 </div>
                 <div className='w-full px-2'>
                 <input type="text" placeholder='Email' className='w-full h-[50px]' />
                 </div>
                 <div className='w-full px-2'>
-                <input type="text" placeholder='Phone' className='w-full h-[50px]'  />
+                <input type="text" placeholder='Điện thoại ' className='w-full h-[50px]'  />
                 </div>
                 <div className='w-full px-2'>
-                    <textarea name="" id="" className='w-full' rows="4" placeholder='Message'></textarea>
+                    <textarea name="" id="" className='w-full' rows="4" placeholder='Lời nhắn '></textarea>
                 </div>
                 <div className='px-2'>
-                    <ButtonComponent contentButton="SUBMIT MESSAGE"/>
+                    <ButtonComponent contentButton="GỬI TIN NHẮN "/>
                 </div>
             </div>
         </div>

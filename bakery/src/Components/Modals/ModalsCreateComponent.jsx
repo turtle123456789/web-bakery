@@ -22,19 +22,19 @@ const ModalsCreateComponent = ({openModal, setOpenModal,swapModal, setToasts}) =
       let errors = {userName:'', email: '', password: '',confirmPassword:'',checkpass:'' };
   
       if (!email.trim()) {
-        errors.email = 'Email cannot be empty';
+        errors.email = 'Email không được để trống';
       }
       if (!password.trim()) {
-        errors.password = 'Password cannot be empty';
+        errors.password = 'Mật khẩu không được để trống';
       }
       if (!userName.trim()) {
-        errors.userName = 'UserName cannot be empty';
+        errors.userName = 'Tên đăng nhập không được để trống';
       }
       if (!confirmPassword.trim()) {
-        errors.confirmPassword = 'confirmPassword cannot be empty';
+        errors.confirmPassword = 'Mật khẩu xác nhận không được để trống';
       }
       if (confirmPassword.trim() !== password.trim()) {
-        errors.checkpass = 'Password does not match ';
+        errors.checkpass = 'Mật khẩu không trùng khớp ';
       }
       setError(errors);
   
@@ -62,11 +62,11 @@ const ModalsCreateComponent = ({openModal, setOpenModal,swapModal, setToasts}) =
         <Modal.Header />
         <Modal.Body>
           <div className="my-2">
-            <h3 className="text-[24px]">New Customers</h3>
-            <h4 className='text-[12px] '>Sign up to create your account today.</h4>
+            <h3 className="text-[24px]">Khách hàng mới</h3>
+            <h4 className='text-[12px] '>Đăng ký để tạo tài khoản của bạn ngay hôm nay.</h4>
             <div className='my-2'>
               <div className="mb-1 block">
-                <Label htmlFor="userName" value="UserName" />
+                <Label htmlFor="userName" value="Tên đăng nhập" />
               </div>
               <input value={userName} onChange={(e)=>setUserName(e.target.value)} className='w-full p-2 border border-gray-300 focus:ring-gray-500 focus: focus:border-gray-500'/>
               {error.userName && <p className="text-red-500 text-sm mt-1">{error.userName}</p>}
@@ -85,7 +85,7 @@ const ModalsCreateComponent = ({openModal, setOpenModal,swapModal, setToasts}) =
             </div>
             <div className='my-2'>
               <div className="mb-1 block">
-                <Label htmlFor="password" value="Password" />
+                <Label htmlFor="password" value="Mât khẩu" />
               </div>
               <input value={password} onChange={(e)=>setPassword(e.target.value)} className='w-full p-2 border border-gray-300 focus:ring-gray-500 focus: focus:border-gray-500' id="password" type="password" required />
               {error.password && <p className="text-red-500 text-sm mt-1">{error.password}</p>}
@@ -93,7 +93,7 @@ const ModalsCreateComponent = ({openModal, setOpenModal,swapModal, setToasts}) =
             </div>
             <div className='my-2'>
               <div className="mb-1 block">
-                <Label htmlFor="password" value="Confirm Password" />
+                <Label htmlFor="password" value="Xác nhận mật khẩu" />
               </div>
               <input value={confirmPassword} onChange={(e)=>setConfirmPassword(e.target.value)} className='w-full p-2 border border-gray-300 focus:ring-gray-500 focus: focus:border-gray-500' id="password" type="password" required />
               {error.confirmPassword && <p className="text-red-500 text-sm mt-1">{error.confirmPassword}</p>}
@@ -102,16 +102,16 @@ const ModalsCreateComponent = ({openModal, setOpenModal,swapModal, setToasts}) =
             <div className="flex justify-between my-2">
               <div className="flex items-center gap-2">
                 <Checkbox id="remember" className='border border-gray-300'/>
-                <Label htmlFor="remember">Sign up for our latest news and offers here</Label>
+                <Label htmlFor="remember">Đăng ký để nhận tin tức và ưu đãi mới nhất của chúng tôi tại đây. </Label>
               </div>
             </div>
             <div className="w-full flex justify-center" onClick={handleSubmit}>
-              <ButtonComponent contentButton="CREATE AN ACCOUNT"/>
+              <ButtonComponent contentButton="TẠO TÀI KHOẢN"/>
             </div>
             <div className="flex justify-center text-sm my-3 ">
-                Do you have an account?&nbsp;
+                Bạn đã có tài khoản?&nbsp;
               <Link onClick={()=>swapModal()} className=" hover:underline ">
-                Sign in account
+                Đăng nhập
               </Link>
             </div>
           </div>

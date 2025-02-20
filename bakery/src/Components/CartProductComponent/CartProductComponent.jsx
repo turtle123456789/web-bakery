@@ -54,7 +54,7 @@ const CartProductComponent = ({ id, img, nameProduct, price,setToasts }) => {
                             className='bg-black border-2 border-white w-full h-full text-white text-xs font-bold'
                             onClick={()=>addToCart()}
                         >
-                            ADD TO BASKET
+                            THÊM VÀO GIỎ HÀNG
                         </button>
                     </div>
                 </div>
